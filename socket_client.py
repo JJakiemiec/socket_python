@@ -11,8 +11,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         if(message == ""):
                 header = 0
         else:
-                isCap = input("Do you want to capitalize your message? (y or yes for yes, anything else for no)")
-                header = 1 if isCap.upper() == "Y" or isCap.upper() == "YES" else 2
+                isCap = input("Do you want to capitalize your message? (y or yes for yes, anything else for no)").toupper()
+                header = 1 if isCap == "Y" or isCap == "YE" or isCap == "YES" else 2
         package = str(header) + message
         s.sendall(package.encode('ASCII'))
         data = s.recv(1024)
